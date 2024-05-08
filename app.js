@@ -109,7 +109,7 @@ mongoose.connect(
     },
     (err) => {
         if (err) {
-            console.error("FAILED TO CONNECT TO MONGODB");
+            console.error("FAILED TO CONNECT TO MONGODBBB");
             console.error(err);
         } else {
             console.log(
