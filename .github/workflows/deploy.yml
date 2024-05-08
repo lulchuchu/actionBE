@@ -24,7 +24,7 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull tienanhknock/action-be
       - name: Delete old container
-        run: docker rm -f nodejs-app-container
+        run: docker rm -f lulbe1
       - name: Run docker container
-        run: docker run --rm -p 8090:8090 --name lulbe1 --hostname lulbe1 -e LISTENING_PORT=8090 -d tienanhknock/action-be
+        run: docker run --rm -p 80:80 --name lulbe1 --hostname lulbe1 -e LISTENING_PORT=80 -d tienanhknock/action-be
         
