@@ -26,5 +26,5 @@ jobs:
       - name: Delete old container
         run: docker rm -f lulbe1
       - name: Run docker container
-        run: docker run --rm -p 80:80 --name lulbe1 --hostname lulbe1 -e LISTENING_PORT=80 -d tienanhknock/action-be
+        run: docker run --rm -p 80:80 --name lulbe1 -e LISTENING_PORT=80 -d tienanhknock/action-be
         

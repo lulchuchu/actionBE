@@ -7,6 +7,9 @@ COPY package.json .
 RUN npm install pm2 -g
 RUN npm install
 
+# Create log directory and file
+RUN mkdir -p logs && touch logs/access.log
+
 COPY . .
 
 EXPOSE 80
