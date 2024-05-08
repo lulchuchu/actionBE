@@ -31,13 +31,13 @@ jobs:
         run: docker rm -f nginx-docker
       - name: Delete old network
         run: docker network rm -f lul-net
-      - name: Delete old nginx
-        run: |
-          if docker volume ls --quiet --filter name=nginx.conf; then
-            docker volume rm nginx.conf
-          else
-            echo "nginx-conf not exist."
-          fi
+      # - name: Delete old nginx
+      #   run: |
+      #     if docker volume ls --quiet --filter name=nginx.conf; then
+      #       docker volume rm nginx.conf
+      #     else
+      #       echo "nginx-conf not exist."
+      #     fi
 
               
       - name: Pull image from docker hub
