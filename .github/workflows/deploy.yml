@@ -26,5 +26,5 @@ jobs:
       - name: Delete old container
         run: docker rm -f nodejs-app-container
       - name: Run docker container
-        run: docker run --rm --name lulbe1 --hostname lulbe1 -e LISTENING_PORT=8090 -d tienanhknock/action-be
+        run: docker run --rm -p 8090:8090 --name lulbe1 --hostname lulbe1 -e LISTENING_PORT=8090 -d tienanhknock/action-be
         
