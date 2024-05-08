@@ -25,6 +25,22 @@ jobs:
         run: docker pull tienanhknock/action-be
       - name: Delete old container
         run: docker rm -f lulbe1
+      - name: Delete old container
+        run: docker rm -f lulbe2
+      - name: Delete old container
+        run: docker rm -f nginx-docker
+      - name: Delete old network
+        run: docker network rm -f lul-net
+      - name: Delete old nginx
+        run: docker volume remove nginx.conf
+      - name: Pull image from docker hub
+        run: docker pull tienanhknock/action-be
+      - name: Create network
+        run: docker network create lul-net
       - name: Run docker container
-        run: docker run --rm -p 80:80 --name lulbe1 -e LISTENING_PORT=80 -d tienanhknock/action-be
+        run: docker run --rm --name lulbe1 --hostname lulbe1 --network lul-net -e LISTENING_PORT=8090 -d tienanhknock/action-be
+      - name: Run docker container
+        run: docker run --rm --name lulbe2 --hostname lulbe2 --network lul-net -e LISTENING_PORT=8090 -d tienanhknock/action-be
+      - name: Run docker container
+        run: docker run --rm --name nginx-docker --network lul-net -p 80:8090 -d -v /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf nginx
         
